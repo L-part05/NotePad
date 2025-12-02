@@ -73,18 +73,18 @@ I.查询时包含时间戳字段,即在NotesList类中在projection字符串数�
 
 II.时间戳格式化显示，即在NoteList类中创建格式化显示时间戳对象；
 
-private SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+  private SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
 III.在列表项中显示时间戳，先在NoteList类中添加如下代码:
 
  // 设置时间戳
- TextView timestampView =(TextView) view.findViewById(R.id.timestamp);
- String formattedDate = mDateFormat.format(new Date(timestamp));
-timestampView.setText(formattedDate);
+   TextView timestampView =(TextView) view.findViewById(R.id.timestamp);
+   String formattedDate = mDateFormat.format(new Date(timestamp));
+   timestampView.setText(formattedDate);
 
 再继续在notelist_item.xml布局文件中添加如下代码:
 
-  <TextView
+    <TextView
             android:id="@+id/timestamp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -373,47 +373,47 @@ III.清除搜索功能,即在NoteList类中新增clearSearch方法:
 
 I.自定义EditText控件定义,即创建LinedEditText，继承自 EditText，添加额外的绘制功能，并且使用静态内部类方式，仅在 NoteEditor 中使用，代码如下:
 
-package com.example.android.notepad;
+   package com.example.android.notepad;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.util.AttributeSet;
-import android.widget.EditText;
+   import android.content.Context;
+   import android.graphics.Canvas;
+   import android.graphics.Paint;
+   import android.graphics.Rect;
+   import android.util.AttributeSet;
+   import android.widget.EditText;
 
-/**
- * Custom EditText that draws lines between each line of text
- */
-public class LinedEditText extends EditText {
-    private Rect mRect;
-    private Paint mPaint;
+  /**
+   *   Custom EditText that draws lines between each line of text
+   */
+  public class LinedEditText extends EditText {
+      private Rect mRect;
+      private Paint mPaint;
 
-    public LinedEditText(Context context) {
+      public LinedEditText(Context context) {
         super(context);
         init();
-    }
+      }
 
-    public LinedEditText(Context context, AttributeSet attrs) {
+      public LinedEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
-    }
+      }
 
-    public LinedEditText(Context context, AttributeSet attrs, int defStyle) {
+      public LinedEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
-    }
+      }
 
-    private void init() {
+      private void init() {
         mRect = new Rect();
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(0xFFE0E0E0); // Light gray lines
         mPaint.setStrokeWidth(1);
-    }
+      }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
+      @Override
+      protected void onDraw(Canvas canvas) {
         int lineCount = getLineCount();
         int lineHeight = getLineHeight();
         int paddingTop = getPaddingTop();

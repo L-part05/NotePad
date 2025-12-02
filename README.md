@@ -78,9 +78,10 @@ II.时间戳格式化显示，即在NoteList类中创建格式化显示时间戳
 III.在列表项中显示时间戳，先在NoteList类中添加如下代码:
 
  // 设置时间戳
-   TextView timestampView =(TextView) view.findViewById(R.id.timestamp);
-   String formattedDate = mDateFormat.format(new Date(timestamp));
-   timestampView.setText(formattedDate);
+ 
+    TextView timestampView =(TextView) view.findViewById(R.id.timestamp);
+    String formattedDate = mDateFormat.format(new Date(timestamp));
+    timestampView.setText(formattedDate);
 
 再继续在notelist_item.xml布局文件中添加如下代码:
 
@@ -177,10 +178,10 @@ I.搜索对话框的构建与显示,即在NoteList类中新建showSearchDialog�
 
 II.搜索执行逻辑,即在NoteList中新建performSearch方法:
 
-  private void performSearch(String query, int searchType, int categoryFilter) {
-        mCurrentSearchQuery = query;
-        mCurrentSearchType = searchType;
-        mCurrentCategoryFilter = categoryFilter;
+    private void performSearch(String query, int searchType, int categoryFilter) {
+          mCurrentSearchQuery = query;
+          mCurrentSearchType = searchType;
+          mCurrentCategoryFilter = categoryFilter;
 
         String selection = null;
         String[] selectionArgs = null;
@@ -373,19 +374,16 @@ III.清除搜索功能,即在NoteList类中新增clearSearch方法:
 
 I.自定义EditText控件定义,即创建LinedEditText，继承自 EditText，添加额外的绘制功能，并且使用静态内部类方式，仅在 NoteEditor 中使用，代码如下:
 
-   package com.example.android.notepad;
 
-   import android.content.Context;
-   import android.graphics.Canvas;
-   import android.graphics.Paint;
-   import android.graphics.Rect;
-   import android.util.AttributeSet;
-   import android.widget.EditText;
+     package com.example.android.notepad;
 
-  /**
-   *   Custom EditText that draws lines between each line of text
-   */
-  public class LinedEditText extends EditText {
+     import android.content.Context;
+     import android.graphics.Canvas;
+     import android.graphics.Paint;
+     import android.graphics.Rect;
+     import android.util.AttributeSet;
+     import android.widget.EditText;
+     public class LinedEditText extends EditText {
       private Rect mRect;
       private Paint mPaint;
 
@@ -710,8 +708,11 @@ I.主题设置,使用 Holo Light 主题和对话框主题，使得背景颜色�
 I.数据库和契约类（NotePad）中新增类型字段定义和分类常量:
 
   // 新增分类字段
+  
           public static final String COLUMN_NAME_CATEGORY = "category";
+          
   // 分类常量
+  
           public static final int CATEGORY_PERSONAL = 0;   // 个人
           public static final int CATEGORY_WORK = 1;       // 工作
           public static final int CATEGORY_STUDY = 2;      // 学习
@@ -767,16 +768,18 @@ I.布局中添加类型选择控件:
 II.类型下拉列表初始化:
 
 // NoteEditor.java - 设置类型下拉列表
-  private void setupTypeSpinner() {
+
+    private void setupTypeSpinner() {
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
             R.array.note_types, android.R.layout.simple_spinner_item);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     mTypeSpinner.setAdapter(adapter);
-  }
+   }
 
 III.类型数据的保存和加载:
 
 // NoteEditor.java - 加载已有笔记的类型
+
 @Override
 protected void onResume() {
     super.onResume();
@@ -798,12 +801,13 @@ protected void onResume() {
 }
 
 // NoteEditor.java - 保存笔记时保存类型
-  private final void updateNote(String text, String title, String type) {
+
+    private final void updateNote(String text, String title, String type) {
     ContentValues values = new ContentValues();
     values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
     values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
     values.put(NotePad.Notes.COLUMN_NAME_NOTE, text);
-    values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);  // 保存类型
+    values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);  
     
     // 更新数据库
     getContentResolver().update(mUri, values, null, null);
@@ -814,15 +818,17 @@ protected void onResume() {
 I.类型数组资源:
 
   <!-- res/values/arrays.xml -->
-  <string-array name="note_types">
-      <item>默认</item>
-      <item>工作</item>
-      <item>学习</item>
-      <item>生活</item>
-      <item>个人</item>
-      <item>重要</item>
-      <item>临时</item>
-  </string-array>
+  
+    <string-array name="note_types">
+        <item>默认</item>
+        <item>工作</item>
+        <item>学习</item>
+        <item>生活</item>
+        <item>个人</item>
+        <item>重要</item>
+        <item>临时</item>
+    </string-array>
+    
 3.实现效果界面截图
 
 

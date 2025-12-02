@@ -709,19 +709,19 @@ I.主题设置,使用 Holo Light 主题和对话框主题，使得背景颜色�
 
 I.数据库和契约类（NotePad）中新增类型字段定义和分类常量:
 
-// 新增分类字段
-        public static final String COLUMN_NAME_CATEGORY = "category";
-// 分类常量
-        public static final int CATEGORY_PERSONAL = 0;   // 个人
-        public static final int CATEGORY_WORK = 1;       // 工作
-        public static final int CATEGORY_STUDY = 2;      // 学习
-        public static final int CATEGORY_IDEA = 3;       // 想法
-        public static final int CATEGORY_TODO = 4;       // 待办事项
-        public static final int CATEGORY_OTHER = 5;      // 其他
+  // 新增分类字段
+          public static final String COLUMN_NAME_CATEGORY = "category";
+  // 分类常量
+          public static final int CATEGORY_PERSONAL = 0;   // 个人
+          public static final int CATEGORY_WORK = 1;       // 工作
+          public static final int CATEGORY_STUDY = 2;      // 学习
+          public static final int CATEGORY_IDEA = 3;       // 想法
+          public static final int CATEGORY_TODO = 4;       // 待办事项
+          public static final int CATEGORY_OTHER = 5;      // 其他
 
 II.数据库提供者（NotePadProvider）中的oncreate方法中添加类型字段处理:
 
-  public void onCreate(SQLiteDatabase db) {
+       public void onCreate(SQLiteDatabase db) {
             Log.d(TAG, "Creating database table...");
             String sql = "CREATE TABLE " + TABLE_NAME + " ("
                     + NotePad.Notes._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -767,12 +767,12 @@ I.布局中添加类型选择控件:
 II.类型下拉列表初始化:
 
 // NoteEditor.java - 设置类型下拉列表
-private void setupTypeSpinner() {
+  private void setupTypeSpinner() {
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
             R.array.note_types, android.R.layout.simple_spinner_item);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     mTypeSpinner.setAdapter(adapter);
-}
+  }
 
 III.类型数据的保存和加载:
 
@@ -798,7 +798,7 @@ protected void onResume() {
 }
 
 // NoteEditor.java - 保存笔记时保存类型
-private final void updateNote(String text, String title, String type) {
+  private final void updateNote(String text, String title, String type) {
     ContentValues values = new ContentValues();
     values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
     values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
@@ -813,16 +813,16 @@ private final void updateNote(String text, String title, String type) {
 
 I.类型数组资源:
 
-<!-- res/values/arrays.xml -->
-<string-array name="note_types">
-    <item>默认</item>
-    <item>工作</item>
-    <item>学习</item>
-    <item>生活</item>
-    <item>个人</item>
-    <item>重要</item>
-    <item>临时</item>
-</string-array>
+  <!-- res/values/arrays.xml -->
+  <string-array name="note_types">
+      <item>默认</item>
+      <item>工作</item>
+      <item>学习</item>
+      <item>生活</item>
+      <item>个人</item>
+      <item>重要</item>
+      <item>临时</item>
+  </string-array>
 3.实现效果界面截图
 
 

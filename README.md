@@ -12,6 +12,9 @@ NotePad-Android应用的介绍文档
 
 (2)进入笔记编辑界面后，可进行笔记编辑
 
+<img width="569" height="1222" alt="7afe6c1ba27291886c7b5354dcaef10e" src="https://github.com/user-attachments/assets/8ad1c155-09f7-40bf-a2d4-a9bc934a340b" />
+
+
 2.笔记列表
 
 在进行笔记的新建和编辑后，在主界面中呈现笔记列表。
@@ -100,6 +103,11 @@ III.在列表项中显示时间戳，先在NoteList类中添加如下代码:
             android:singleLine="true" />
 
 3.实现效果界面截图
+
+在标题和内容当中显示最新修改时间:
+
+<img width="544" height="1014" alt="658a36b15e596f8b78df623ea0765d95" src="https://github.com/user-attachments/assets/fffa88ec-1b45-4fdb-a111-535b6b496285" />
+
 
 （二）.笔记查询功能（按标题、内容、标题和内容查询）
 
@@ -363,6 +371,27 @@ III.清除搜索功能,即在NoteList类中新增clearSearch方法:
 </LinearLayout>
 
 3.实现效果界面截图
+
+（1）.点击搜索按钮后可以选择按照类型或标题和内容搜索:
+
+<img width="606" height="1379" alt="195305979bf1f1edb8f3015aa506c721" src="https://github.com/user-attachments/assets/f52cc1c6-a158-4e23-94c1-b41ecdb18d2d" />
+
+(2).点击分类搜索后可以选择要搜索的分类:
+
+<img width="621" height="1356" alt="4d9af0ac4561138b164b90ce01c15a8c" src="https://github.com/user-attachments/assets/a283cb2f-bce3-4e69-a75f-31561e4c7908" />
+
+(3).点击搜索类型后可以选择标题搜索、内容搜索、标题和内容搜索
+
+<img width="618" height="1332" alt="1b7218f09318cd2e470aadee5ec9afac" src="https://github.com/user-attachments/assets/92a87236-a394-491c-b384-89299e2d1505" />
+
+(4).搜索成功后在最下方显示搜索出的笔记个数，同时将符合条件的笔记显示在主列表中
+
+<img width="559" height="1131" alt="fbdb7999d9f954633b1eee2c75f0c5f5" src="https://github.com/user-attachments/assets/22b5f6bd-c44d-47c9-aaf1-b1dfe0767adb" />
+
+(5).点击清除搜索内容后，会显示所有笔记在主列表中:
+
+<img width="570" height="1163" alt="c38c1e5933cbb601d2968566538cef43" src="https://github.com/user-attachments/assets/aab7b8e9-24cb-4caa-8dbf-9f9ca3c53c2d" />
+
 
 三.拓展附加功能
 
@@ -700,6 +729,17 @@ I.主题设置,使用 Holo Light 主题和对话框主题，使得背景颜色�
 
 3.实现效果界面截图
 
+(1).笔记列表中会根据笔记选择的颜色修改对应的背景颜色，同时笔记项不仅能显示标题，还能显示类型和内容:
+
+<img width="544" height="1014" alt="cc7ed48d7e53b500ab1f3d1eb7b40796" src="https://github.com/user-attachments/assets/b4c15a6a-270e-48f3-b2d3-fa7c08c7c754" />
+
+
+(2).在新建笔记时，点击选择颜色可以选择笔记背景颜色
+
+<img width="569" height="1222" alt="7afe6c1ba27291886c7b5354dcaef10e" src="https://github.com/user-attachments/assets/b69af5e8-80c0-4894-832c-9f0f2702a73f" />
+
+<img width="595" height="1377" alt="245954bce1e496831af0f013d0441f94" src="https://github.com/user-attachments/assets/9290b824-ca14-408f-b621-98d4175282e3" />
+
 （二）.笔记类型
 
 1.功能要求
@@ -836,6 +876,11 @@ I.类型数组资源:
     
 3.实现效果界面截图
 
+在笔记列表中可以显示出笔记类型，同时在新建笔记时可以选择笔记所属类型:
+
+<img width="544" height="1014" alt="5750acc686ddb1b4ff88e4f98c5e42ea" src="https://github.com/user-attachments/assets/f299104a-7c5e-4d39-84e5-71f6448444e6" />
+
+<img width="576" height="1337" alt="74e15ea71ebffbb418fe042546b9099f" src="https://github.com/user-attachments/assets/d040d2bf-6263-4513-9d73-742a4faa8090" />
 
 
 

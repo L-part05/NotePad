@@ -62,7 +62,7 @@ I.更新笔记时设置修改时间,即在NoteEditor类中updatenote方法中添
 
 I.查询时包含时间戳字段,即在NotesList类中在projection字符串数组变量中添加时间戳字段；
 
-  private static final String[] PROJECTION = new String[] {
+    private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID,
             NotePad.Notes.COLUMN_NAME_TITLE,
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,//添加时间戳字段

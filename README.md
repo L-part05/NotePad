@@ -1,2 +1,1 @@
-# NotePad
-A new repo for Notepad
+NotePad-Android应用的介绍文档

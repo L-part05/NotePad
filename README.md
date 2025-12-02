@@ -286,12 +286,12 @@ III.清除搜索功能,即在NoteList类中新增clearSearch方法:
 
 (2).查询页面展示，即新建选择查询条件页面search_dialog.xml:
 
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+   <?xml version="1.0" encoding="utf-8"?> 
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:padding="16dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -680,14 +680,15 @@ II.笔记列表项布局优化，即修改notes_list.xml文件代码如下；
 (3). 主题实现
 
 I.主题设置,使用 Holo Light 主题和对话框主题，使得背景颜色更加明亮，同时活动显示为对话框形式
-
-<!-- AndroidManifest.xml 中的主题配置 -->
-<activity android:name="NoteEditor"
+  
+   <activity 
+    android:name="NoteEditor"
     android:theme="@android:style/Theme.Holo.Light"
     android:screenOrientation="sensor"
     android:configChanges="keyboardHidden|orientation">
 
-<activity android:name="TitleEditor"
+   <activity 
+    android:name="TitleEditor"
     android:label="@string/title_edit_title"
     android:icon="@drawable/ic_menu_edit"
     android:theme="@android:style/Theme.Holo.Dialog"

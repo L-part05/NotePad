@@ -705,8 +705,124 @@ I.主题设置,使用 Holo Light 主题和对话框主题，使得背景颜色�
 
 2.实现思路和技术实现
 
+(1).数据库层实现:
 
+I.数据库和契约类（NotePad）中新增类型字段定义和分类常量:
 
+// 新增分类字段
+        public static final String COLUMN_NAME_CATEGORY = "category";
+// 分类常量
+        public static final int CATEGORY_PERSONAL = 0;   // 个人
+        public static final int CATEGORY_WORK = 1;       // 工作
+        public static final int CATEGORY_STUDY = 2;      // 学习
+        public static final int CATEGORY_IDEA = 3;       // 想法
+        public static final int CATEGORY_TODO = 4;       // 待办事项
+        public static final int CATEGORY_OTHER = 5;      // 其他
+
+II.数据库提供者（NotePadProvider）中的oncreate方法中添加类型字段处理:
+
+  public void onCreate(SQLiteDatabase db) {
+            Log.d(TAG, "Creating database table...");
+            String sql = "CREATE TABLE " + TABLE_NAME + " ("
+                    + NotePad.Notes._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + NotePad.Notes.COLUMN_NAME_TITLE + " TEXT,"
+                    + NotePad.Notes.COLUMN_NAME_NOTE + " TEXT,"
+                    + NotePad.Notes.COLUMN_NAME_CREATE_DATE + " INTEGER,"
+                    + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER,"
+                    + NotePad.Notes.COLUMN_NAME_COLOR + " INTEGER DEFAULT 0,"
+                    + NotePad.Notes.COLUMN_NAME_CATEGORY + " INTEGER DEFAULT 0" //类型字段处理
+                    + ");";
+            Log.d(TAG, "SQL: " + sql);
+            db.execSQL(sql);
+            Log.d(TAG, "Table created successfully with color column");
+        }
+        
+(2).编辑界面类型选择实现:
+
+I.布局中添加类型选择控件:
+<!-- note_editor_with_type.xml -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="类型:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="10dp" />
+
+    <Spinner
+        android:id="@+id/note_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+</LinearLayout>
+
+II.类型下拉列表初始化:
+
+// NoteEditor.java - 设置类型下拉列表
+private void setupTypeSpinner() {
+    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+            R.array.note_types, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    mTypeSpinner.setAdapter(adapter);
+}
+
+III.类型数据的保存和加载:
+
+// NoteEditor.java - 加载已有笔记的类型
+@Override
+protected void onResume() {
+    super.onResume();
+    
+    if (mCursor != null) {
+        mCursor.requery();
+        mCursor.moveToFirst();
+        
+        if (mState == STATE_EDIT) {
+            // 设置类型
+            int colTypeIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_TYPE);
+            String type = mCursor.getString(colTypeIndex);
+            setSpinnerSelection(mTypeSpinner, type);
+        } else if (mState == STATE_INSERT) {
+            // 新建笔记时默认选择第一个类型
+            mTypeSpinner.setSelection(0);
+        }
+    }
+}
+
+// NoteEditor.java - 保存笔记时保存类型
+private final void updateNote(String text, String title, String type) {
+    ContentValues values = new ContentValues();
+    values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, System.currentTimeMillis());
+    values.put(NotePad.Notes.COLUMN_NAME_TITLE, title);
+    values.put(NotePad.Notes.COLUMN_NAME_NOTE, text);
+    values.put(NotePad.Notes.COLUMN_NAME_TYPE, type);  // 保存类型
+    
+    // 更新数据库
+    getContentResolver().update(mUri, values, null, null);
+}
+
+(3).类型数据资源定义
+
+I.类型数组资源:
+
+<!-- res/values/arrays.xml -->
+<string-array name="note_types">
+    <item>默认</item>
+    <item>工作</item>
+    <item>学习</item>
+    <item>生活</item>
+    <item>个人</item>
+    <item>重要</item>
+    <item>临时</item>
+</string-array>
 3.实现效果界面截图
 
 

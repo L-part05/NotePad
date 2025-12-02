@@ -119,7 +119,7 @@ III.在列表项中显示时间戳，先在NoteList类中添加如下代码:
 <img width="544" height="1014" alt="658a36b15e596f8b78df623ea0765d95" src="https://github.com/user-attachments/assets/fffa88ec-1b45-4fdb-a111-535b6b496285" />
 
 
-（二）.笔记查询功能（按标题、内容、标题和内容查询）
+（二）.笔记查询功能（按类型、标题、内容、标题和内容查询）
 
 1.功能要求
 

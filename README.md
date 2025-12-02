@@ -6,6 +6,10 @@ NotePad-Android应用的介绍文档
 
 (1)在主界面点击右下方蓝色加号所示按钮，新建笔记并进入编辑界面
 
+<img width="544" height="1014" alt="cc7ed48d7e53b500ab1f3d1eb7b40796" src="https://github.com/user-attachments/assets/73e323b4-962d-4162-b2b7-be70f9bbc0da" />
+
+
+
 (2)进入笔记编辑界面后，可进行笔记编辑
 
 2.笔记列表

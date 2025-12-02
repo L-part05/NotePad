@@ -26,7 +26,7 @@ NotePad-Android应用的介绍文档
 
 I.修改数据库表结构设计，创建表时包含时间戳字段，即创建时间和修改时间，即将NotePadProvider中oncreate代码修改如下:
 
-  public void onCreate(SQLiteDatabase db) {
+         public void onCreate(SQLiteDatabase db) {
             Log.d(TAG, "Creating database table...");
             String sql = "CREATE TABLE " + TABLE_NAME + " ("
                     + NotePad.Notes._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

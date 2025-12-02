@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择笔记颜色"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="2">
+
+        <Button
+            android:id="@+id/color_default"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_default"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/color_red"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_red"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/color_orange"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_orange"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/color_yellow"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_yellow"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/color_green"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_green"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/color_blue"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_blue"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/color_purple"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/color_button_purple"
+            android:layout_margin="8dp" />
+
+    </GridLayout>
+
+</LinearLayout>

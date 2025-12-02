@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用主色 -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#2196F3</color>
+
+    <!-- 浅色主题颜色 -->
+    <color name="light_background">#FAFAFA</color>
+    <color name="light_card_background">#FFFFFF</color>
+    <color name="light_text_primary">#212121</color>
+    <color name="light_text_secondary">#757575</color>
+    <color name="light_divider">#E0E0E0</color>
+
+    <!-- 深色主题颜色 -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_card_background">#1E1E1E</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#B0B0B0</color>
+    <color name="dark_divider">#424242</color>
+
+    <!-- 按钮颜色 -->
+    <color name="button_normal">#2196F3</color>
+    <color name="button_pressed">#1976D2</color>
+</resources>

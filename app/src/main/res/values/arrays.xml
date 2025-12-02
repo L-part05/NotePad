@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_types">
+        <item>按标题搜索</item>
+        <item>按内容搜索</item>
+        <item>标题和内容都搜索</item>
+    </string-array>
+</resources>

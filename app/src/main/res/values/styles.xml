@@ -1,0 +1,12 @@
+<resources>
+    <!-- 使用更现代的主题 -->
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <!-- 设置主色调 -->
+        <item name="android:colorPrimary">#2196F3</item>
+        <item name="android:colorPrimaryDark">#1976D2</item>
+        <item name="android:colorAccent">#2196F3</item>
+        <!-- 启用 ActionBar -->
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowNoTitle">false</item>
+    </style>
+</resources>

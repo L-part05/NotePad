@@ -13,20 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.android.notepad;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * Defines a contract between the Note Pad content provider and its clients. A contract defines the
- * information that a client needs to access the provider as one or more data tables. A contract
- * is a public, non-extendable (final) class that contains constants defining column names and
- * URIs. A well-written client depends only on the constants in the contract.
+ * Defines a contract between the Note Pad content provider and its clients.
  */
 public final class NotePad {
-    public static final String AUTHORITY = "com.google.provider.NotePad";
+    public static final String AUTHORITY = "com.example.android.notepad";
 
     // This class cannot be instantiated
     private NotePad() {
@@ -48,25 +44,10 @@ public final class NotePad {
         /*
          * URI definitions
          */
-
-        /**
-         * The scheme part for this provider's URI
-         */
         private static final String SCHEME = "content://";
-
-        /**
-         * Path parts for the URIs
-         */
-
-        /**
-         * Path part for the Notes URI
-         */
         private static final String PATH_NOTES = "/notes";
-
-        /**
-         * Path part for the Note ID URI
-         */
         private static final String PATH_NOTE_ID = "/notes/";
+        private static final String PATH_LIVE_FOLDER = "/live_folders/notes";
 
         /**
          * 0-relative position of a note ID segment in the path part of a note ID URI
@@ -74,48 +55,29 @@ public final class NotePad {
         public static final int NOTE_ID_PATH_POSITION = 1;
 
         /**
-         * Path part for the Live Folder URI
-         */
-        private static final String PATH_LIVE_FOLDER = "/live_folders/notes";
-
-        /**
          * The content:// style URL for this table
          */
-        public static final Uri CONTENT_URI =  Uri.parse(SCHEME + AUTHORITY + PATH_NOTES);
+        public static final Uri CONTENT_URI = Uri.parse(SCHEME + AUTHORITY + PATH_NOTES);
 
         /**
-         * The content URI base for a single note. Callers must
-         * append a numeric note id to this Uri to retrieve a note
+         * The content URI base for a single note.
          */
-        public static final Uri CONTENT_ID_URI_BASE
-            = Uri.parse(SCHEME + AUTHORITY + PATH_NOTE_ID);
+        public static final Uri CONTENT_ID_URI_BASE = Uri.parse(SCHEME + AUTHORITY + PATH_NOTE_ID);
 
         /**
-         * The content URI match pattern for a single note, specified by its ID. Use this to match
-         * incoming URIs or to construct an Intent.
+         * The content URI match pattern for a single note
          */
-        public static final Uri CONTENT_ID_URI_PATTERN
-            = Uri.parse(SCHEME + AUTHORITY + PATH_NOTE_ID + "/#");
+        public static final Uri CONTENT_ID_URI_PATTERN = Uri.parse(SCHEME + AUTHORITY + PATH_NOTE_ID + "/#");
 
         /**
          * The content Uri pattern for a notes listing for live folders
          */
-        public static final Uri LIVE_FOLDER_URI
-            = Uri.parse(SCHEME + AUTHORITY + PATH_LIVE_FOLDER);
+        public static final Uri LIVE_FOLDER_URI = Uri.parse(SCHEME + AUTHORITY + PATH_LIVE_FOLDER);
 
         /*
          * MIME type definitions
          */
-
-        /**
-         * The MIME type of {@link #CONTENT_URI} providing a directory of notes.
-         */
         public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.google.note";
-
-        /**
-         * The MIME type of a {@link #CONTENT_URI} sub-directory of a single
-         * note.
-         */
         public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.google.note";
 
         /**
@@ -123,32 +85,33 @@ public final class NotePad {
          */
         public static final String DEFAULT_SORT_ORDER = "modified DESC";
 
+        // 新增分类字段
+        public static final String COLUMN_NAME_CATEGORY = "category";
+
         /*
          * Column definitions
          */
-
-        /**
-         * Column name for the title of the note
-         * <P>Type: TEXT</P>
-         */
         public static final String COLUMN_NAME_TITLE = "title";
-
-        /**
-         * Column name of the note content
-         * <P>Type: TEXT</P>
-         */
         public static final String COLUMN_NAME_NOTE = "note";
-
-        /**
-         * Column name for the creation timestamp
-         * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
-         */
         public static final String COLUMN_NAME_CREATE_DATE = "created";
-
-        /**
-         * Column name for the modification timestamp
-         * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
-         */
         public static final String COLUMN_NAME_MODIFICATION_DATE = "modified";
+        public static final String COLUMN_NAME_COLOR = "color";
+
+        // Color values
+        public static final int COLOR_DEFAULT = 0;
+        public static final int COLOR_RED = 1;
+        public static final int COLOR_ORANGE = 2;
+        public static final int COLOR_YELLOW = 3;
+        public static final int COLOR_GREEN = 4;
+        public static final int COLOR_BLUE = 5;
+        public static final int COLOR_PURPLE = 6;
+
+        // 分类常量
+        public static final int CATEGORY_PERSONAL = 0;   // 个人
+        public static final int CATEGORY_WORK = 1;       // 工作
+        public static final int CATEGORY_STUDY = 2;      // 学习
+        public static final int CATEGORY_IDEA = 3;       // 想法
+        public static final int CATEGORY_TODO = 4;       // 待办事项
+        public static final int CATEGORY_OTHER = 5;      // 其他
     }
 }

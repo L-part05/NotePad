@@ -1,25 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-  
-          http://www.apache.org/licenses/LICENSE-2.0
-  
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:gravity="center_vertical"
-    android:paddingLeft="5dip"
-    android:singleLine="true"
-/>
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="@drawable/list_item_background">
+
+    <!-- Color Indicator -->
+    <View
+        android:id="@+id/color_indicator"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="12dp"
+        android:background="#F5F5F5" />
+
+    <!-- Content Area -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- 分类标签（第一行，最显眼） -->
+        <TextView
+            android:id="@+id/category_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/category_background"
+            android:textColor="#FFFFFF"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@android:id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:textColor="#212121" />
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:paddingTop="2dp"
+            android:singleLine="true" />
+
+        <!-- Content Preview -->
+        <TextView
+            android:id="@+id/content_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#616161"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:paddingTop="4dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
